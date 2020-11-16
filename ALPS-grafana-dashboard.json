@@ -12,18 +12,18 @@
       }
     ]
   },
-  "description": "kalu.solutions Stakepool Monitor",
+  "description": "ALPS Stakepool Monitor",
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 3,
+  "id": 4,
   "links": [
     {
       "icon": "external link",
       "tags": [],
       "title": "View stakepool homepage",
       "type": "link",
-      "url": "https://cardano.kalu.solutions"
+      "url": "https://alps.kalu.solutions"
     },
     {
       "icon": "external link",
@@ -290,7 +290,7 @@
       "id": 151,
       "options": {
         "colorMode": "background",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "horizontal",
         "reduceOptions": {
@@ -3467,7 +3467,7 @@
       "lines": true,
       "linewidth": 1,
       "links": [],
-      "nullPointMode": "null",
+      "nullPointMode": "null as zero",
       "options": {
         "alertThreshold": true
       },
@@ -3496,8 +3496,7 @@
           "fill": true,
           "line": true,
           "op": "lt",
-          "value": 1,
-          "yaxis": "left"
+          "value": 1
         }
       ],
       "timeFrom": null,
@@ -3618,7 +3617,7 @@
       "lines": true,
       "linewidth": 1,
       "links": [],
-      "nullPointMode": "null",
+      "nullPointMode": "null as zero",
       "options": {
         "alertThreshold": true
       },
@@ -3645,8 +3644,7 @@
           "fill": true,
           "line": true,
           "op": "lt",
-          "value": 1,
-          "yaxis": "left"
+          "value": 1
         }
       ],
       "timeFrom": null,
@@ -3767,7 +3765,7 @@
       "lines": true,
       "linewidth": 1,
       "links": [],
-      "nullPointMode": "null",
+      "nullPointMode": "null as zero",
       "options": {
         "alertThreshold": true
       },
@@ -3794,8 +3792,7 @@
           "fill": true,
           "line": true,
           "op": "lt",
-          "value": 1,
-          "yaxis": "left"
+          "value": 1
         }
       ],
       "timeFrom": null,
@@ -3942,8 +3939,7 @@
           "fill": true,
           "line": true,
           "op": "lt",
-          "value": 1,
-          "yaxis": "left"
+          "value": 1
         }
       ],
       "timeFrom": null,
@@ -7485,7 +7481,7 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {
@@ -7513,7 +7509,7 @@
     ]
   },
   "timezone": "",
-  "title": "kalu.solutions! ticker: [KALU]",
-  "uid": "KALU",
-  "version": 13
+  "title": "alps.kalu.solutions! ticker: [ALPS]",
+  "uid": "ALPS",
+  "version": 8
 }
