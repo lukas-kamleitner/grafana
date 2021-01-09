@@ -233,7 +233,7 @@
       "id": 153,
       "options": {
         "colorMode": "background",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "horizontal",
         "reduceOptions": {
@@ -563,7 +563,7 @@
               }
             ]
           },
-          "unit": "locale"
+          "unit": "short"
         },
         "overrides": []
       },
@@ -576,7 +576,7 @@
       "id": 146,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
         "reduceOptions": {
@@ -618,7 +618,7 @@
               }
             ]
           },
-          "unit": "locale"
+          "unit": "short"
         },
         "overrides": []
       },
@@ -631,7 +631,7 @@
       "id": 147,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
         "reduceOptions": {
@@ -659,7 +659,7 @@
     },
     {
       "datasource": "prometheus",
-      "description": "Current Epoch",
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -686,7 +686,7 @@
       "id": 186,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
         "reduceOptions": {
@@ -701,7 +701,7 @@
       "pluginVersion": "7.1.2",
       "targets": [
         {
-          "expr": "adapools_rewards_epoch",
+          "expr": "adapools_blocks_lifetime",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -709,7 +709,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Rewards",
+      "title": "Blocks (Lifetime)",
       "type": "stat"
     },
     {
@@ -1085,7 +1085,7 @@
       },
       "gridPos": {
         "h": 2,
-        "w": 2,
+        "w": 1,
         "x": 10,
         "y": 7
       },
@@ -1140,8 +1140,8 @@
       },
       "gridPos": {
         "h": 2,
-        "w": 2,
-        "x": 12,
+        "w": 1,
+        "x": 11,
         "y": 7
       },
       "id": 185,
@@ -1171,6 +1171,61 @@
       "timeFrom": null,
       "timeShift": null,
       "title": "Delegators",
+      "type": "stat"
+    },
+    {
+      "datasource": "prometheus",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 12,
+        "y": 7
+      },
+      "id": 190,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.1.2",
+      "targets": [
+        {
+          "expr": "adapools_saturated",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Satured",
       "type": "stat"
     },
     {
@@ -2098,7 +2153,7 @@
       "pluginVersion": "7.1.2",
       "targets": [
         {
-          "expr": "cardano_node_metrics_upTime_ns{alias=\"core\"} / (1000000000)",
+          "expr": "time() - cardano_node_metrics_nodeStartTime_int{alias=\"core\"}",
           "format": "time_series",
           "hide": false,
           "instant": true,
@@ -2232,7 +2287,7 @@
       "pluginVersion": "7.1.2",
       "targets": [
         {
-          "expr": "cardano_node_metrics_upTime_ns{alias=\"relay1\"} / (1000000000)",
+          "expr": "time() - cardano_node_metrics_nodeStartTime_int{alias=\"relay1\"}",
           "format": "time_series",
           "hide": false,
           "instant": true,
@@ -2243,6 +2298,8 @@
           "step": 40
         }
       ],
+      "timeFrom": null,
+      "timeShift": null,
       "title": "Uptime Relay-Node1",
       "transparent": true,
       "type": "stat"
@@ -2367,7 +2424,7 @@
       "pluginVersion": "7.1.2",
       "targets": [
         {
-          "expr": "cardano_node_metrics_upTime_ns{alias=\"relay2\"} / (1000000000)",
+          "expr": "time() - cardano_node_metrics_nodeStartTime_int{alias=\"relay2\"}",
           "format": "time_series",
           "hide": false,
           "instant": true,
@@ -6788,7 +6845,7 @@
       "targets": [
         {
           "datasource": "prometheus",
-          "expr": "(cardano_node_metrics_Stat_rss_int{alias=\"core\"}*4096)/(1024*1024)",
+          "expr": "cardano_node_metrics_Mem_resident_int{alias=\"core\"}/(1024*1024)",
           "interval": "",
           "legendFormat": "{{alias}}",
           "refId": "A"
@@ -6887,7 +6944,7 @@
       "targets": [
         {
           "datasource": "prometheus",
-          "expr": "(cardano_node_metrics_Stat_rss_int{alias=\"relay1\"}*4096)/(1024*1024)",
+          "expr": "cardano_node_metrics_Mem_resident_int{alias=\"relay1\"}/(1024*1024)",
           "interval": "",
           "legendFormat": "{{alias}}",
           "refId": "A"
@@ -6986,7 +7043,7 @@
       "targets": [
         {
           "datasource": "prometheus",
-          "expr": "(cardano_node_metrics_Stat_rss_int{alias=\"relay2\"}*4096)/(1024*1024)",
+          "expr": "cardano_node_metrics_Mem_resident_int{alias=\"relay2\"}/(1024*1024)",
           "interval": "",
           "legendFormat": "{{alias}}",
           "refId": "A"
@@ -7481,7 +7538,7 @@
     "list": []
   },
   "time": {
-    "from": "now-15m",
+    "from": "now-6h",
     "to": "now"
   },
   "timepicker": {
@@ -7511,5 +7568,5 @@
   "timezone": "",
   "title": "alps.kalu.solutions! ticker: [ALPS]",
   "uid": "ALPS",
-  "version": 8
+  "version": 21
 }
